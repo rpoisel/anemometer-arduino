@@ -15,7 +15,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="foo" buildProperties="" description="" id="0.910961921" name="Default" parent="org.eclipse.cdt.build.core.prefbase.cfg">
+				<configuration artifactName="anemometer-arduino" buildProperties="" description="" id="0.910961921" name="Default" parent="org.eclipse.cdt.build.core.prefbase.cfg">
 					<folderInfo id="0.910961921." name="/" resourcePath="">
 						<toolChain id="org.eclipse.cdt.build.core.prefbase.toolchain.952979152" name="No ToolChain" resourceTypeBasedDiscovery="false" superClass="org.eclipse.cdt.build.core.prefbase.toolchain">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="org.eclipse.cdt.build.core.prefbase.toolchain.952979152.52310970" name=""/>
@@ -27,12 +27,11 @@
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip/include"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/cores/esp8266"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/variants/d1_mini"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/.piolibdeps/PubSubClient_ID89/src"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/lib/pt-1.4"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/src"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/lib/pt-1.4"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/.piolibdeps/PubSubClient_ID89/src"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/.piolibdeps/PubSubClient_ID89/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/lib/Low_Power_ID38"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/lib/RadioHead_ID124"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA"/>
@@ -79,12 +78,11 @@
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip/include"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/cores/esp8266"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/variants/d1_mini"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/.piolibdeps/PubSubClient_ID89/src"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/lib/pt-1.4"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/src"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/lib/pt-1.4"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/.piolibdeps/PubSubClient_ID89/src"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/.piolibdeps/PubSubClient_ID89/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/lib/Low_Power_ID38"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/lib/RadioHead_ID124"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA"/>
@@ -131,12 +129,11 @@
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip/include"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/cores/esp8266"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/variants/d1_mini"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/.piolibdeps/PubSubClient_ID89/src"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/lib/pt-1.4"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/src"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/lib/pt-1.4"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/.piolibdeps/PubSubClient_ID89/src"/>
-									<listOptionValue builtIn="false" value="/tmp/foo/.piolibdeps/PubSubClient_ID89/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/lib/Low_Power_ID38"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/lib/RadioHead_ID124"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA"/>
@@ -185,7 +182,7 @@
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-		<project id="foo.null.189551033" name="foo"/>
+		<project id="anemometer-arduino.null.189551033" name="anemometer-arduino"/>
 	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
