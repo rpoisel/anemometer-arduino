@@ -1,41 +1,46 @@
+#include "common.h"
+#include "config.h"
+#include "fw_update.h"
+
+#include <PubSubClient.h>
+#include <ArduinoJson.h>
+
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
-#include <PubSubClient.h>
+#include <ESP8266mDNS.h>
+#include <FS.h>
+
 #include <cstdio>
-
-typedef uint8_t RC;
-#define RC_OK                  0x00
-#define RC_ERROR               0x80
-#define RC_ERROR_WIFI_CONNECT  0x81
-#define RC_ERROR_MQTT_CONNECT  0x82
-
-#define RC_FAILED(x)           ((x) & RC_ERROR)
-#define RC_SUCCEEDED(x)        (!RC_FAILED(x))
+#include <string>
 
 static RC initSystem();
 static float measureWindSpeed();
 static void evaluateWindSpeed(float windSpeed);
 static RC connectToWifi();
+static RC connectToWifiImpl(char const* ssid, char const* password);
 static void publishMqttMessage();
 static RC connectToMqttBroker();
 static void deepSleep();
 static void isrRotation();
 
-static uint8_t const PIN_SUPPLY = D2;
-static uint8_t const PIN_INTERRUPT = D1;
+static uint8_t const PIN_SUPPLY = 14; // GPIO14
+static uint8_t const PIN_INTERRUPT = 12; // GPIO12
 static unsigned long const TIME_MS_DEBOUNCE = 15;
-static unsigned long const TIME_MS_WIFI_ESTABLISH_CONNECTION = 5000;
+static unsigned long const TIME_MS_WIFI_ESTABLISH_CONNECTION = 10000;
 static unsigned long const TIME_MS_MEASURE_PERIOD = 3000;
 static size_t const THRESHOLD_CNT_WIND_SPEED = 2;
-static char const* MQTT_BROKER = "xxx";
+static char const* PATH_CONFIG_JSON = "/config.json";
 static char const* MQTT_TOPIC = "windspeed";
-static char const* WIFI_SSID = "yyy";
-static char const* WIFI_PASS = "zzz";
 
 static volatile size_t cntWindSpeed;
 static volatile unsigned long ContactBounceTime;
 static WiFiClient espClient;
 static PubSubClient mqttClient(espClient);
+static ConfigProviderCb configCb(PATH_CONFIG_JSON);
+static String mqttBroker;
+static uint16_t mqttPort;
+static String mqttClientId;
+static uint8_t mqttConnectRetries = -1;
 
 void setup()
 {
@@ -47,6 +52,7 @@ void setup()
   float windSpeed = measureWindSpeed();
   evaluateWindSpeed(windSpeed);
 
+  checkForUpdates();
   deepSleep();
 }
 
@@ -58,9 +64,17 @@ void loop()
 static RC initSystem()
 {
   Serial.begin(9600);
+  Serial.print("Setting up system ... ");
   pinMode(PIN_SUPPLY, OUTPUT);
   pinMode(PIN_INTERRUPT, INPUT_PULLUP);
 
+  if (!SPIFFS.begin())
+  {
+    Serial.println("Failed to open SPIFFS.");
+    return RC_ERROR_INIT_SYSTEM;
+  }
+
+  Serial.println("done.");
   return RC_OK;
 }
 
@@ -80,6 +94,8 @@ static float measureWindSpeed()
 
 static void evaluateWindSpeed(float windspeed)
 {
+  Serial.print("Windspeed: ");
+  Serial.println(windspeed);
   if (windspeed <= THRESHOLD_CNT_WIND_SPEED)
   {
     return;
@@ -88,18 +104,29 @@ static void evaluateWindSpeed(float windspeed)
   {
     return;
   }
+  if (RC_FAILED(connectToMqttBroker()))
+  {
+    return;
+  }
   publishMqttMessage();
 }
 
 static RC connectToWifi()
 {
-  WiFi.begin(WIFI_SSID, WIFI_PASS);
+  return configCb.parseWifiSettings([](String const& ssid, String const& pass) -> RC {
+    return RC_SUCCEEDED(connectToWifiImpl(ssid.c_str(), pass.c_str())) ? CF_FINISH : CF_CONTINUE;
+  });
+}
+
+static RC connectToWifiImpl(char const* ssid, char const* password)
+{
+  WiFi.begin(ssid, password);
 
   // WiFi fix: https://github.com/esp8266/Arduino/issues/2186
   WiFi.persistent(false);
   WiFi.mode(WIFI_OFF);
   WiFi.mode(WIFI_STA);
-  WiFi.begin(WIFI_SSID, WIFI_PASS);
+  WiFi.begin(ssid, password);
 
   unsigned long wifiConnectStart = millis();
 
@@ -112,7 +139,9 @@ static RC connectToWifi()
     }
 
     delay(500);
-    Serial.println("...");
+    Serial.print("Connecting to ");
+    Serial.print(ssid);
+    Serial.println(" ... ");
     if (millis() - wifiConnectStart > TIME_MS_WIFI_ESTABLISH_CONNECTION)
     {
       Serial.println("Failed to connect to WiFi");
@@ -127,26 +156,49 @@ static void publishMqttMessage()
 {
   char mqttMessage[80];
 
-  if (RC_FAILED(connectToMqttBroker()))
-  {
-    return;
-  }
-
   snprintf(mqttMessage, sizeof(mqttMessage), "%u", cntWindSpeed);
   Serial.println("Publishing MQTT message ...");
   mqttClient.publish(MQTT_TOPIC, mqttMessage);
 }
 
+CF mqttConfigCb(String const& key, String const& value)
+{
+    if (key.equalsIgnoreCase("host")) {
+        mqttBroker = value;
+    }
+    else if (key.equalsIgnoreCase("port")) {
+        mqttPort = value.toInt();
+    }
+    else if (key.equalsIgnoreCase("clientId")) {
+        mqttClientId = value;
+    }
+    else if (key.equalsIgnoreCase("retries")) {
+        mqttConnectRetries = value.toInt();
+    }
+
+    if (mqttBroker.length() > 0 && mqttPort != 0 && mqttClientId.length() > 0 && mqttConnectRetries > 0) {
+      return CF_FINISH;
+    }
+    return CF_CONTINUE;
+}
+
 static RC connectToMqttBroker()
 {
-  mqttClient.setServer(MQTT_BROKER, 1883);
+  RC rc = configCb.parseMqttSettings(mqttConfigCb);
+  if (RC_FAILED(rc)) {
+    return rc;
+  };
 
-  for (size_t cnt = 0; cnt < 5; cnt++)
+  mqttClient.setServer(mqttBroker.c_str(), mqttPort);
+
+  for (size_t cnt = 0; cnt < mqttConnectRetries; cnt++)
   {
-    Serial.println("Attempting MQTT connection...");
-    String clientId = "ESP8266Client-";
-    clientId += String(random(0xffff), HEX);
-    if (mqttClient.connect(clientId.c_str()))
+    Serial.print("Attempting MQTT connection to ");
+    Serial.print(mqttBroker);
+    Serial.print(":");
+    Serial.print(mqttPort);
+    Serial.println(" ...");
+    if (mqttClient.connect(mqttClientId.c_str()))
     {
       return RC_OK;
     }

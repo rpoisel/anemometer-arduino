@@ -26,10 +26,15 @@
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/include"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip/include"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/cores/esp8266"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/variants/d1_mini"/>
-									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/variants/generic"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/ArduinoJson_ID64/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA"/>
 									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/ArduinoJson_ID64/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/ArduinoJson_ID64/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/lib/Low_Power_ID38"/>
@@ -68,7 +73,7 @@
 									<listOptionValue builtIn="false" value="PLATFORMIO=30400"/>
 									<listOptionValue builtIn="false" value="ESP8266"/>
 									<listOptionValue builtIn="false" value="ARDUINO_ARCH_ESP8266"/>
-									<listOptionValue builtIn="false" value="ESP8266_WEMOS_D1MINI"/>
+									<listOptionValue builtIn="false" value="ARDUINO_MOD_WIFI_ESP8266"/>
 								</option>
 								<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.149990277" languageId="org.eclipse.cdt.core.assembly" languageName="Assembly" sourceContentType="org.eclipse.cdt.core.asmSource" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
 							</tool>
@@ -77,10 +82,15 @@
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/include"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip/include"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/cores/esp8266"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/variants/d1_mini"/>
-									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/variants/generic"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/ArduinoJson_ID64/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA"/>
 									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/ArduinoJson_ID64/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/ArduinoJson_ID64/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/lib/Low_Power_ID38"/>
@@ -119,7 +129,7 @@
 									<listOptionValue builtIn="false" value="PLATFORMIO=30400"/>
 									<listOptionValue builtIn="false" value="ESP8266"/>
 									<listOptionValue builtIn="false" value="ARDUINO_ARCH_ESP8266"/>
-									<listOptionValue builtIn="false" value="ESP8266_WEMOS_D1MINI"/>
+									<listOptionValue builtIn="false" value="ARDUINO_MOD_WIFI_ESP8266"/>
 								</option>
 								<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.762536863" languageId="org.eclipse.cdt.core.g++" languageName="GNU C++" sourceContentType="org.eclipse.cdt.core.cxxSource,org.eclipse.cdt.core.cxxHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
 							</tool>
@@ -128,10 +138,15 @@
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/include"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip/include"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/cores/esp8266"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/variants/d1_mini"/>
-									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/variants/generic"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/ArduinoJson_ID64/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA"/>
 									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/ArduinoJson_ID64/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/ArduinoJson_ID64/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/git/anemometer-arduino/.piolibdeps/PubSubClient_ID89/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/lib/Low_Power_ID38"/>
@@ -170,7 +185,7 @@
 									<listOptionValue builtIn="false" value="PLATFORMIO=30400"/>
 									<listOptionValue builtIn="false" value="ESP8266"/>
 									<listOptionValue builtIn="false" value="ARDUINO_ARCH_ESP8266"/>
-									<listOptionValue builtIn="false" value="ESP8266_WEMOS_D1MINI"/>
+									<listOptionValue builtIn="false" value="ARDUINO_MOD_WIFI_ESP8266"/>
 								</option>
 								<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.549319812" languageId="org.eclipse.cdt.core.gcc" languageName="GNU C" sourceContentType="org.eclipse.cdt.core.cSource,org.eclipse.cdt.core.cHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
 							</tool>
